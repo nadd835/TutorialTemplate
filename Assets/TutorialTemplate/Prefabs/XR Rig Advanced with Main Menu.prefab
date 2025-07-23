@@ -928,7 +928,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Continue Button
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1205202425949705705, guid: c50b66cb8119d674987c526f714f06cf, type: 3}
     m_RemovedGameObjects:
     - {fileID: 2181196973230839227, guid: c50b66cb8119d674987c526f714f06cf, type: 3}
     - {fileID: 3014722312312823104, guid: c50b66cb8119d674987c526f714f06cf, type: 3}

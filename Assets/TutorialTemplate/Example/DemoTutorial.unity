@@ -600,6 +600,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 2017334963}
+    - target: {fileID: 778577423575868780, guid: 5fac576d7b85fda40b188f05fc3b1835,
+        type: 3}
+      propertyPath: m_Name
+      value: 'Highlight and Grab Object Tutorial '
+      objectReference: {fileID: 0}
     - target: {fileID: 978156524542780056, guid: 5fac576d7b85fda40b188f05fc3b1835,
         type: 3}
       propertyPath: OnPlayerTeleported.m_PersistentCalls.m_Calls.Array.size
