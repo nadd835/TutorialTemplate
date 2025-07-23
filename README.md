@@ -70,7 +70,7 @@ Import the package into your Unity project.
 - Drag in the `TutorialComplete` prefab from the `Prefabs > Tutorials` folder
 - Drag the AudioController into the scene and set AudioTrigger.Play("ButtonClick") on each button’s OnClick() event.
 - In the Inspector of the TutorialCanvas, customize the sequences list in the TutorialController by adjusting the order, adding new sequences, or removing any you don't need.
-- 
+  
 You can create additional tutorials by duplicating the prefab, adjusting the steps and events accordingly. 
 
 ### 3. Configure Voice Over (Optional)
