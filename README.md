@@ -11,7 +11,8 @@ Unity tutorial template for VR project that allows developers to quickly add, re
 - Customizable step conditions with UnityEvents
 - Voice-over support with RT-Voice (optional)
 - Default delay between steps and optional per-step delay timers
-
+- Open/Close notification
+  
 ---
 
 ## Project Structure
@@ -24,13 +25,16 @@ Assets/
 │   │   │   ├── TutorialController.cs        <- Manages multiple sequences
 │   │   │   ├── SequenceController.cs        <- Manages individual steps in a sequence
 │   │   │   └── SequenceStep.cs              <- Trigger next step logic + voice
+│   │   │   └── NotificationManager.cs   
 │   │   ├── Actions/
 │   │   │   ├── TeleportController.cs        
 │   │   │   ├── ObjectGrabCounter.cs     
 │   │   │   ├── OutlineSelection.cs         
 │   │   │   └── AlwaysFaceCamera.cs          
 │   │   ├── Audio/
-│   │   │   └── AudioTrigger.cs           
+│   │   │   └── AudioTrigger.cs
+│   │   └── MainMenu.cs
+│   │   └── OpenCloseNObj.cs     
 │   ├── Prefabs/
 │   │   ├── Tutorials/
 │   │   │   ├── Click Button Tutorial.prefab
@@ -47,7 +51,8 @@ Assets/
 │   │   ├── AudioController.prefab
 │   │   ├── Environment.prefab
 │   │   ├── Inventory.prefab
-│   │   └── XR Rig Advanced.prefab
+│   │   └── XR Rig Advanced No Main Menu.prefab
+│   │   └── XR Rig Advanced with Main Menu.prefab
 │   └── Examples/
 │       └── DemoTutorial.unity  
 ```
@@ -60,14 +65,13 @@ Assets/
 
 Import the package into your Unity project.
 
-### 2. Add the TutorialController
-- Drag in the `TutorialManager` prefab from the `Prefabs` folder
-- It comes pre-attached with the `TutorialController` script
-- In the Inspector, customize the tutorial `sequences` list
-- Each `SequenceController` handles a list of steps that will be played in order from 0 to end
-
-You can create additional tutorials by duplicating the prefab, adjusting the steps and events accordingly. You may also add new tutorial sequences from existing prefabs and edit the `TutorialController` list to control the playback order.
-
+### 2. Add and adjust Prefabs
+- Drag in the RTVoice, Audio Controller, XR Rig advance prefabs
+- Drag in the `TutorialComplete` prefab from the `Prefabs > Tutorials` folder
+- Drag the AudioController into the scene and set AudioTrigger.Play("ButtonClick") on each button’s OnClick() event.
+- In the Inspector of the TutorialCanvas, customize the sequences list in the TutorialController by adjusting the order, adding new sequences, or removing any you don't need.
+- 
+You can create additional tutorials by duplicating the prefab, adjusting the steps and events accordingly. 
 
 ### 3. Configure Voice Over (Optional)
 - Use the `Use Voice Over` checkbox in `TutorialController` to enable or disable voice playback during tutorial steps.
@@ -95,7 +99,7 @@ This structure is demonstrated in the included `DemoTutorial` scene.
 
 ### Setup
 
-1. Add `TutorialController` to a manager GameObject
+1. Add `TutorialController` to a canvas GameObject
 2. Create child GameObjects for each tutorial sequence
 3. Attach `SequenceController` to each sequence
 4. Add `SequenceStep` to each step objects inside `SequenceController`
@@ -105,33 +109,19 @@ This structure is demonstrated in the included `DemoTutorial` scene.
 
 ```
 TutorialCanvas
-├── Start Tutorial
-│   └── Start Panel, Overview Controller Panel
-├── Click Button Tutorial
-│   └── Click Button Panel, Click Here Button, Welldone Click Button
-├── Teleport Tutorial
-│   └── Teleport Panel, Welldone Teleport Panel, Teleport Destinations
-├── Highlight Object Tutorial
-│   └── Highlight Object Panel, Welldone Teleport Panel
-├── Grab & Drop Object
-│   └── Grab Object Panel, Move to Tray Panel, Move to Basket Panel, Welldone Teleport Panel
-├── Show Menu
-│   └── Show Menu Panel, Welldone Teleport Panel
-├── End Tutorial
-│   └── Tutorial Complete Panel
+├── Start Tutorial (Sequence 1) 
+│   └── Start Panel (Step 1), Overview Controller Panel (Step 2)
+├── Click Button Tutorial (Sequence 2) 
+│   └── Click Button Panel (Step 1), Click Here Button (Step 2), Welldone Click Button (Step 3)
+├── Teleport Tutorial (Sequence 3) 
+│   └── Teleport Panel (Step 1), Welldone Teleport Panel (Step 2), Teleport Destinations (Step 3)
+├── Highlight and Grab Object Tutorial (Sequence 4) 
+│   └── Highlight Object Panel (Step 1), Welldone Teleport Panel (Step 2), Grab Object Panel (Step 3), Move to Tray Panel (Step 4), Move to Basket Panel (Step 5), Welldone Teleport Panel (Step 6)
+├── Show Menu (Sequence 5) 
+│   └── Show Menu Panel (Step 1), Welldone Teleport Panel (Step 2)
+├── End Tutorial (Sequence 6) 
+│   └── Tutorial Complete Panel (Step 1)
 ```
----
-
-## Adding Custom Steps
-
-You can define your own tutorial interaction logic by extending `SequenceStep.cs`. To add a custom tutorial:
-- Create a new GameObject and attach your custom step script
-- Add it to a `SequenceController` in the step list
-- Implement your logic to trigger interaction-specific actions
-- Call `NextStep()` when the interaction has finished to continue the flow
-
-You can also add tutorials from existing prefabs inside the `Tutorials` folder, then adjust the flow by modifying the sequence list in the `TutorialController`. The sequences will be played automatically in order from start to finish.
-
 ---
 
 ## Required Third-Party Packages
