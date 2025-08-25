@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 3728a6cdd250efe4abaa1efa7edd68cb
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - tmpTitleFont: {instanceID: 0}
+  - legacyTitleFont: {instanceID: 0}
+  - tmpGeneralFont: {instanceID: 0}
+  - legacyGeneralFont: {instanceID: 0}
+  - tmpButtonFont: {instanceID: 0}
+  - legacyButtonFont: {instanceID: 0}
+  - panelSprite: {instanceID: 0}
+  - buttonSprite: {instanceID: 0}
+  - backButtonSprite: {instanceID: 0}
+  - progressBackgroundSprite: {instanceID: 0}
+  - moduleSelectionSprite: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
