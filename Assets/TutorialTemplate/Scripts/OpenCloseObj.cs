@@ -1,13 +1,13 @@
 using UnityEngine;
 
-public class OpenCloseObj : MonoBehaviour
+public class ActiveDeactiveObj : MonoBehaviour
 {
-    public void Open()
+    public void Activate()
     {
         gameObject.SetActive(true);
     }
 
-    public void Close()
+    public void Deactive()
     {
         gameObject.SetActive(false);
     }
