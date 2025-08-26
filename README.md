@@ -32,7 +32,7 @@ Unity tutorial template for VR projects to allow developers to quickly add, remo
 - Open/close notification system  
 - Progress indicator  
 - Previous/Next step navigation  
-- **UI customization** option  
+- UI customization option  
 
 ---
 
@@ -64,9 +64,9 @@ Unity tutorial template for VR projects to allow developers to quickly add, remo
 4. To skip a tutorial, uncheck **Open**.  
 5. Add `TutorialNavigationController` to manage **Next/Previous** buttons.  
 
-<img src="asset/image.png" width="500"/>
+<img src="asset/image.png" width="300"/>
 
-<img src="asset/image 1.png" width="500"/>
+<img src="asset/image 1.png" width="300"/>
 
 ---
 
@@ -77,8 +77,8 @@ Unity tutorial template for VR projects to allow developers to quickly add, remo
 4. Enable **Force Voice Over** if desired.  
 5. For each module button, call `TutorialModuleSelector.SelectModule`.  
 
-<img src="asset/image 2.png" width="500"/>  
-<img src="asset/image 3.png" width="500"/>
+<img src="asset/image 2.png" width="300"/>  
+<img src="asset/image 3.png" width="300"/>
 
 ---
 
@@ -90,11 +90,11 @@ Unity tutorial template for VR projects to allow developers to quickly add, remo
 5. Toggle **Use Voice Over** in `TutorialControllerOnSequence`.  
 6. For modules, enable **Force Voice Over** in `TutorialModuleSelector`.  
 
-<img src="asset/image 4.png" width="500"/>  
-<img src="asset/image 5.png" width="500"/>  
-<img src="asset/image 6.png" width="500"/>  
-<img src="asset/image 7.png" width="500"/>  
-<img src="asset/image 8.png" width="500"/>
+<img src="asset/image 4.png" width="300"/>  
+<img src="asset/image 5.png" width="300"/>  
+<img src="asset/image 6.png" width="300"/>  
+<img src="asset/image 7.png" width="300"/>  
+<img src="asset/image 8.png" width="300"/>
 
 ---
 
@@ -106,11 +106,11 @@ Unity tutorial template for VR projects to allow developers to quickly add, remo
   - `Previous()` → go back (optionally reset step state)  
 - To exit a module: call `TutorialModuleSelector.CloseCurrentModuleAndOpenMenu`.  
 
-<img src="asset/image 9.png" width="500"/>  
-<img src="asset/image 10.png" width="500"/>  
-<img src="asset/image 11.png" width="500"/>  
-<img src="asset/image 12.png" width="500"/>  
-<img src="asset/image 13.png" width="500"/>
+<img src="asset/image 9.png" width="300"/>  
+<img src="asset/image 10.png" width="300"/>  
+<img src="asset/image 11.png" width="300"/>  
+<img src="asset/image 12.png" width="300"/>  
+<img src="asset/image 13.png" width="300"/>
 
 ---
 
@@ -121,11 +121,11 @@ Unity tutorial template for VR projects to allow developers to quickly add, remo
 4. Configure overrides (fonts, sizes, colors, sprites).  
 5. Press **Apply Customization** on the controller.  
 
-<img src="asset/image 14.png" width="500"/>  
-<img src="asset/image 15.png" width="500"/>  
-<img src="asset/image 16.png" width="500"/>  
-<img src="asset/image 17.png" width="500"/>  
-<img src="asset/image 18.png" width="500"/>  
-<img src="asset/image 19.png" width="500"/>
+<img src="asset/image 14.png" width="300"/>  
+<img src="asset/image 15.png" width="300"/>  
+<img src="asset/image 16.png" width="300"/>  
+<img src="asset/image 17.png" width="300"/>  
+<img src="asset/image 18.png" width="300"/>  
+<img src="asset/image 19.png" width="300"/>
 
 ---
