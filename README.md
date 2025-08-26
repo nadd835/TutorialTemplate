@@ -129,8 +129,3 @@ Unity tutorial template for VR projects to allow developers to quickly add, remo
 <img src="asset/image 19.png" width="500"/>
 
 ---
-
-## Folder Setup for GitHub
-
-Place screenshots in an `asset/` folder at your repo root:
-
