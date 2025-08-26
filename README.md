@@ -7,7 +7,7 @@ Unity tutorial template for VR projects to allow developers to quickly add, remo
 ## About
 
 - **Unity Version**: 6000.0.52f1  
-- Provides a reusable **tutorial system** for VR projects with modular and sequence-based tutorials.
+- Provides a reusable **tutorial system** for VR projects with modules and sequence-based tutorials.
 
 ---
 
@@ -25,7 +25,7 @@ Unity tutorial template for VR projects to allow developers to quickly add, remo
 ## Features
 
 - Tutorial based on **modules** or **sequences**  
-- Ready-to-use tutorial steps (teleport, grab, click)  
+- Tutorial steps (teleport, grab, click)  
 - Customizable tutorial step conditions using **UnityEvents**  
 - Optional voice-over support with **RT-Voice**  
 - Default step delay with optional per-step override  
@@ -57,7 +57,7 @@ Unity tutorial template for VR projects to allow developers to quickly add, remo
 
 ## How To
 
-### Create a New Tutorial Sequence
+### Create a Tutorial Sequence
 1. Add `TutorialControllerOnSequence` script to a **Tutorial Canvas** object.  
 2. Assign tutorials in the **Tutorial Sequences** list.  
 3. Add a **Progress Indicator Text** to show progress.  
