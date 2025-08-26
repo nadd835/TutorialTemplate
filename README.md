@@ -1,135 +1,136 @@
 # VR Tutorial Template
 
-Unity tutorial template for VR project that allows developers to quickly add, remove, or customize interactive tutorials like teleport, grab object, click, etc.
+Unity tutorial template for VR projects to allow developers to quickly add, remove, and customize interactive tutorials.
+
+---
+
+## About
+
+- **Unity Version**: 6000.0.52f1  
+- Provides a reusable **tutorial system** for VR projects with modular and sequence-based tutorials.
+
+---
+
+## Required Packages
+
+- VR Interaction Framework (VRIF)  
+- RT-Voice  
+- Proto UI  
+- Quick Outline  
+- Audio Toolkit  
+- Future UI Sound Library  
 
 ---
 
 ## Features
 
-- Multi-sequence tutorial flow via `TutorialController`
-- Ready-to-use tutorial steps (Teleport, Grab, Click, etc.) via `SequenceController`
-- Customizable step conditions with UnityEvents
-- Voice-over support with RT-Voice (optional)
-- Default delay between steps and optional per-step delay timers
-- Open/Close notification
-  
----
-
-## Project Structure
-
-```
-Assets/
-├── TutorialTemplate/
-│   ├── Scripts/
-│   │   ├── Controllers/
-│   │   │   ├── TutorialController.cs        <- Manages multiple sequences
-│   │   │   ├── SequenceController.cs        <- Manages individual steps in a sequence
-│   │   │   └── SequenceStep.cs              <- Trigger next step logic + voice
-│   │   │   └── NotificationManager.cs   
-│   │   ├── Actions/
-│   │   │   ├── TeleportController.cs        
-│   │   │   ├── ObjectGrabCounter.cs     
-│   │   │   ├── OutlineSelection.cs         
-│   │   │   └── AlwaysFaceCamera.cs          
-│   │   ├── Audio/
-│   │   │   └── AudioTrigger.cs
-│   │   └── MainMenu.cs
-│   │   └── OpenCloseNObj.cs     
-│   ├── Prefabs/
-│   │   ├── Tutorials/
-│   │   │   ├── Click Button Tutorial.prefab
-│   │   │   ├── End Tutorial.prefab
-│   │   │   ├── Grab & Drop.prefab
-│   │   │   ├── Highlight Object Tutorial.prefab
-│   │   │   ├── Show Menu.prefab
-│   │   │   ├── Start Tutorial.prefab
-│   │   │   └── Teleport Tutorial.prefab
-│   │   ├── UI/
-│   │   │   ├── Panel.prefab
-│   │   │   ├── Tutorial Canvas.prefab
-|   |   |   └── Welldone Panel.prefab
-│   │   ├── AudioController.prefab
-│   │   ├── Environment.prefab
-│   │   ├── Inventory.prefab
-│   │   └── XR Rig Advanced No Main Menu.prefab
-│   │   └── XR Rig Advanced with Main Menu.prefab
-│   └── Examples/
-│       └── DemoTutorial.unity  
-```
+- Tutorial based on **modules** or **sequences**  
+- Ready-to-use tutorial steps (teleport, grab, click)  
+- Customizable tutorial step conditions using **UnityEvents**  
+- Optional voice-over support with **RT-Voice**  
+- Default step delay with optional per-step override  
+- Open/close notification system  
+- Progress indicator  
+- Previous/Next step navigation  
+- **UI customization** option  
 
 ---
 
 ## Getting Started
 
-### 1. Import the package 
+### 1. Import Required Packages
+- Import all required packages listed above.  
+- Import **TMP Essentials**  
+  - Menu: `Window > TextMeshPro > Import TMP Essential Resources`
 
-Import the package into your Unity project.
+### 2. Import the Tutorial Template Package
+- Import the tutorial template package into your Unity project.
 
-### 2. Add and adjust Prefabs
-- Drag in the RTVoice, Audio Controller, XR Rig advance prefabs
-- Drag in the `TutorialComplete` prefab from the `Prefabs > Tutorials` folder
-- Drag the AudioController into the scene and set AudioTrigger.Play("ButtonClick") on each button’s OnClick() event.
-- In the Inspector of the TutorialCanvas, customize the sequences list in the TutorialController by adjusting the order, adding new sequences, or removing any you don't need.
-  
-You can create additional tutorials by duplicating the prefab, adjusting the steps and events accordingly. 
-
-### 3. Configure Voice Over (Optional)
-- Use the `Use Voice Over` checkbox in `TutorialController` to enable or disable voice playback during tutorial steps.
-- When enabled, each step will use the text in `voiceText[]` to auto-generate speech with RT-Voice.
-
-
-### 4. Triggering Step and Sequence Progression
-- To trigger the **next step** in a sequence, call `SequenceStep.NextStep()` (e.g., from a UI button).
-- To trigger the **next sequence**, call `SequenceController.CloseSequence()` on the final step (via UnityEvent).
+### 3. Start with Example Scene
+- Navigate to `TutorialTemplate > Example`  
+- Choose a demo scene:  
+  - **Tutorial with Sequence** – plays all tutorials in one flow  
+  - **Tutorial with Modules** – tutorials grouped per module  
+  - **Demo with UI Customization** – showcases UI customization options  
 
 ---
 
-## Sequence Flow
+## How To
 
-- `TutorialController` runs sequences in order
-- Each `SequenceController` runs steps one-by-one
-- When a sequence finishes, `TutorialController` auto-starts the next one
-- Events like `onSequenceFinished` let you continue to the next sequence
+### Create a New Tutorial Sequence
+1. Add `TutorialControllerOnSequence` script to a **Tutorial Canvas** object.  
+2. Assign tutorials in the **Tutorial Sequences** list.  
+3. Add a **Progress Indicator Text** to show progress.  
+4. To skip a tutorial, uncheck **Open**.  
+5. Add `TutorialNavigationController` to manage **Next/Previous** buttons.  
+
+<img src="asset/image.png" width="500"/>
+
+<img src="asset/image 1.png" width="500"/>
 
 ---
 
-## Example: Multi-Step, Multi-Sequence Tutorial
+### Create a Tutorial Module
+1. On the **Main Menu Panel**, add `TutorialModuleSelector`.  
+2. Add your tutorial sequences to the **Modules** list.  
+3. Assign the **Main Menu Panel** object.  
+4. Enable **Force Voice Over** if desired.  
+5. For each module button, call `TutorialModuleSelector.SelectModule`.  
 
-This structure is demonstrated in the included `DemoTutorial` scene.
+<img src="asset/image 2.png" width="500"/>  
+<img src="asset/image 3.png" width="500"/>
 
-### Setup
-
-1. Add `TutorialController` to a canvas GameObject
-2. Create child GameObjects for each tutorial sequence
-3. Attach `SequenceController` to each sequence
-4. Add `SequenceStep` to each step objects inside `SequenceController`
-5. Drag and drop in the `sequences` list in `TutorialController`
-
-### Example Flow
-
-```
-TutorialCanvas
-├── Start Tutorial (Sequence 1) 
-│   └── Start Panel (Step 1), Overview Controller Panel (Step 2)
-├── Click Button Tutorial (Sequence 2) 
-│   └── Click Button Panel (Step 1), Click Here Button (Step 2), Welldone Click Button (Step 3)
-├── Teleport Tutorial (Sequence 3) 
-│   └── Teleport Panel (Step 1), Welldone Teleport Panel (Step 2), Teleport Destinations (Step 3)
-├── Highlight and Grab Object Tutorial (Sequence 4) 
-│   └── Highlight Object Panel (Step 1), Welldone Teleport Panel (Step 2), Grab Object Panel (Step 3), Move to Tray Panel (Step 4), Move to Basket Panel (Step 5), Welldone Teleport Panel (Step 6)
-├── Show Menu (Sequence 5) 
-│   └── Show Menu Panel (Step 1), Welldone Teleport Panel (Step 2)
-├── End Tutorial (Sequence 6) 
-│   └── Tutorial Complete Panel (Step 1)
-```
 ---
 
-## Required Third-Party Packages
+### Configure Voice Over
+1. Select **RT-Voice** object → add **Voice Pre-Generator**.  
+2. Enter text → generate voice clips into a folder.  
+3. Assign generated clips in **TutorialSequenceStep** scripts.  
+4. Add **Audio Source** on the **Tutorial Canvas** if needed.  
+5. Toggle **Use Voice Over** in `TutorialControllerOnSequence`.  
+6. For modules, enable **Force Voice Over** in `TutorialModuleSelector`.  
 
-This template uses the following Unity packages:
+<img src="asset/image 4.png" width="500"/>  
+<img src="asset/image 5.png" width="500"/>  
+<img src="asset/image 6.png" width="500"/>  
+<img src="asset/image 7.png" width="500"/>  
+<img src="asset/image 8.png" width="500"/>
 
-- **VR Interaction Framework (VRIF)** 
-- **RT-Voice** 
-- **Proto UI** 
-- **Quick Outline** 
-- **Future UI Sound Library** 
+---
+
+### Trigger Next / Previous Step
+- Add `TutorialNavigationController` alongside `TutorialControllerOnSequence`.  
+- Assign controller and enable **Navigation**.  
+- Buttons call:
+  - `Next()` → go forward  
+  - `Previous()` → go back (optionally reset step state)  
+- To exit a module: call `TutorialModuleSelector.CloseCurrentModuleAndOpenMenu`.  
+
+<img src="asset/image 9.png" width="500"/>  
+<img src="asset/image 10.png" width="500"/>  
+<img src="asset/image 11.png" width="500"/>  
+<img src="asset/image 12.png" width="500"/>  
+<img src="asset/image 13.png" width="500"/>
+
+---
+
+### Customize UI
+1. Create a **Customize UI Controller** GameObject → add `UICustomizationController`.  
+2. Create new **UICustomizationData** (`Create > UI > UICustomizationData`).  
+3. Add `CustomizableUIText` (for TMP/Legacy text) or `CustomizableUIImage` (for images) to UI elements.  
+4. Configure overrides (fonts, sizes, colors, sprites).  
+5. Press **Apply Customization** on the controller.  
+
+<img src="asset/image 14.png" width="500"/>  
+<img src="asset/image 15.png" width="500"/>  
+<img src="asset/image 16.png" width="500"/>  
+<img src="asset/image 17.png" width="500"/>  
+<img src="asset/image 18.png" width="500"/>  
+<img src="asset/image 19.png" width="500"/>
+
+---
+
+## Folder Setup for GitHub
+
+Place screenshots in an `asset/` folder at your repo root:
+

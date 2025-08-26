@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro; 
 
 public class TutorialControllerOnSequence : MonoBehaviour
 {
@@ -23,7 +24,7 @@ public class TutorialControllerOnSequence : MonoBehaviour
     public List<SequenceEntry> sequences = new List<SequenceEntry>();
 
     [Header("UI")]
-    public Text progressText;
+    public TMP_Text progressText;
 
     private int currentSequenceIndex = -1;
     private bool isRunning = false;

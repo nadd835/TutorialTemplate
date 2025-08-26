@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3728a6cdd250efe4abaa1efa7edd68cb, type: 3}
+  m_Name: Default UI
+  m_EditorClassIdentifier: 
+  titleTextColor: {r: 1, g: 1, b: 1, a: 1}
+  generalTextColor: {r: 1, g: 1, b: 1, a: 1}
+  buttonTextColor: {r: 1, g: 1, b: 1, a: 1}
+  tmpTitleFont: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  legacyTitleFont: {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
+  tmpGeneralFont: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  legacyGeneralFont: {fileID: 12800000, guid: c723bccca92db784c99acb36fd2bc31a, type: 3}
+  tmpButtonFont: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  legacyButtonFont: {fileID: 12800000, guid: 0ebbcec4dd8e2f040b163f10df7e8382, type: 3}
+  titleFontSize: 4
+  generalFontSize: 4
+  buttonFontSize: 3
+  panelSprite: {fileID: 21300000, guid: ac8043d54bd0c4e45b25119f9d8aa31f, type: 3}
+  buttonSprite: {fileID: 21300000, guid: 4961fe1141aa1d844a59505d34521beb, type: 3}
+  backButtonSprite: {fileID: 21300000, guid: e6f45a9255006d94ebeeda1b756821e1, type: 3}
+  progressBackgroundSprite: {fileID: 21300000, guid: 4961fe1141aa1d844a59505d34521beb,
+    type: 3}
+  moduleSelectionSprite: {fileID: 21300000, guid: 4961fe1141aa1d844a59505d34521beb,
+    type: 3}
+  wellDoneSprite: {fileID: 21300000, guid: ac8043d54bd0c4e45b25119f9d8aa31f, type: 3}
